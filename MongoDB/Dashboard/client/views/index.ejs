@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Dashboard</title>
+	<script src="js/jquery.min.js"></script>
+	<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+	<link rel="stylesheet" href="style/main.css">
+</head>
+<body>
+	<div class='container'>
+		<h1>Dog Shelter</h1>
+		<a href="/dogs/new"><button class='btn btn-default' type="button">Add New Dog</button></a>
+		<hr>
+		<% for(let dog of dogs) { %>
+			<div class='outline'>
+				<p>Name: <%= dog.name %></p>
+				<p>Age: <%= dog.age %> years old</p>
+				<p>Breed: <%= dog.breed %></p>
+				<p>Weight: <%= dog.weight %> lbs</p>
+				<div>
+					<a href="/dogs/<%= dog.id %>"><button class='btn btn-default' type="button">Show</button></a>
+					<a href="/dogs/<%= dog.id %>/edit"><button class='btn btn-default' type="button">Edit</button></a>
+					<a href="/dogs/<%= dog.id %>/delete"><button class='btn btn-default' type="button" onclick="if(!confirm('Confirm Delete!')) return false">Delete</button></a>
+				</div>
+			</div>
+		<% } %>
+	</div>
+</body>
+</html>

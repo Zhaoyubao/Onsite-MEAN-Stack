@@ -1,0 +1,21 @@
+<form class="four columns" id="login" name="logForm" ng-submit="login()" onkeydown="if(event.keyCode == 13) return false" novalidate>
+    <h3>Sign in</h3>
+<!-- ==============================================================================  -->
+    <label>Email</label>
+    <input type="email" name="email" ng-class="{invalid: (!logForm.email.$valid && logForm.email.$touched) || (!logForm.email.$valid && logForm.$submitted)}" ng-model="logUser.email" required>
+    <div class="error" ng-show="logForm.email.$touched || logForm.$submitted">
+        <p ng-show="logForm.email.$error.required"><span>&#10060;</span> Please input your email address</p>
+        <p ng-show="emailErr"><span>&#10060;</span> Email address doesn't exist</p>
+    </div>
+<!-- ==============================================================================  -->
+    <label>Password</label>
+    <input type="password" name="pw" ng-class="{invalid: !logForm.pw.$valid && logForm.pw.$touched}" ng-model="logUser.pw" required>
+    <div class="error" ng-show="logForm.pw.$touched">
+        <p ng-show="logForm.pw.$error.required"><span>&#10060;</span> Please input your password</p>
+        <p ng-show="pwErr"><span>&#10060;</span> Incorrect password</p>
+    </div>
+<!-- ==============================================================================  -->
+    <button class="button-primary">Sign in</button>
+    <hr>
+    <p>New to here? <a href="#/register">Create new account</a><span>&#9656;</span></p>
+</form>

@@ -1,0 +1,22 @@
+<label id="search">Search: <input type="text" ng-model="search.fname" placeholder="Filter: Name"></label>
+<table id="friend">
+    <thead>
+        <tr>
+            <th width="250" ng-click="sortby='fname'; sortBy(sortby)">Name
+                <span class="sortorder" ng-show="sortby === 'fname'" ng-class="{reverse: reverse}"></span>
+            </th>
+            <th width="220">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="friend in friends | filter:search | orderBy:sortby:reverse track by friend._id">
+            <td>{{ friend.fname }} {{ friend.lname }}</td>
+            <td>
+                <a class="show" href="#/show/{{ friend._id }}">Show</a>
+                <a class="edit" href="#/edit/{{ friend._id }}">Edit</a>
+                <a class="del" ng-click="delFriend(friend._id)">Remove</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<a id="add" href="#/new">Add a new friend</a>

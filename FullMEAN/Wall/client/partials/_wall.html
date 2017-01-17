@@ -1,0 +1,26 @@
+<div class="row" id="nav">
+    <h2 class="three columns">MEAN WALL</h2>
+    <button class="two columns" ng-click="signOut()">Sign Out</button>
+    <h4 class="three columns">Welcome! <span>{{ user.name }}</span></h4>
+</div>
+<div id="bar">
+    <p ng-show="msgForm.$submitted && !msgForm.$valid">Please enter your message!</p>
+</div>
+<form class="six columns" id="msg" name="msgForm" ng-submit="postMsg()" onkeydown="if(event.keyCode == 13) return false" novalidate>
+    <label>Post a message:</label>
+    <textarea class="u-full-width" name="msg" ng-model="msg.content" required></textarea>
+    <button id="msg" class="button-primary">Post a message</button>
+</form>
+<div class="row six columns" id="msg" ng-repeat="msg in msgs track by msg._id">
+    <span><i>{{ msg.poster | uppercase }}</i> &nbsp;&nbsp;-&nbsp;&nbsp; {{ msg.createdAt | date: 'h:mma MMM d, yyyy' }}</span>
+    <p>{{ msg.content }}</p>
+    <div id="comment" ng-repeat="comment in msg._comments | orderBy:'comment._id' track by comment._id">
+        <span><i>{{ comment.poster | uppercase }}</i> &nbsp;&nbsp;-&nbsp;&nbsp; {{ comment.createdAt | date: 'h:mma MMM d, yyyy' }}</span>
+        <p>{{ comment.content }}</p>
+    </div>
+    <form id="comment" ng-submit="postComment(msg._id, comment)" onkeydown="if(event.keyCode == 13) return false">
+        <label>Post a comment:</label>
+        <textarea class="u-full-width comments" ng-model="comment.content"></textarea>
+        <button id="comment" class="button-primary">Post a comment</button>
+    </form>
+</div>

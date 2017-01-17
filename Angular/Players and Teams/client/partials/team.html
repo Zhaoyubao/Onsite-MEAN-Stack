@@ -1,0 +1,4 @@
+<h2>Team name: {{ team.name }}</h2>
+<ul>
+    <li ng-repeat="player in players track by $index">Player id.{{ player.id }}: {{ player.name | uppercase }}</li>
+</ul>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Routes</title>
+    <script src="angular/angular.js"></script>
+    <script src="angular-route/angular-route.js"></script>
+    <script>
+        angular.module('myApp', ['ngRoute'])
+            .config(function($routeProvider) {
+                $routeProvider
+                    .when('/', {
+                        templateUrl: 'partials/view1.html',
+                        controller: 'view1Controller'
+                    })
+                    .when('/partials2', {
+                        templateUrl: 'partials/view2.html',
+                        controller: 'view2Controller'
+                    })
+                    .otherwise({ redirectTo: '/'})
+            })
+            .controller('view1Controller', function ($scope) {
+                $scope.sports = ['golf', 'basketball', 'hockey', 'tennis', 'football']
+            })
+            .controller('view2Controller', function ($scope) {
+                $scope.message = 'We are using another controller'
+            })
+    </script>
+</head>
+<body>
+    <div>
+        <a href="#/">Partial 1</a> | <a href="#/partials2">Partial 2</a>
+        <div ng-view>
+        </div>
+    </div>
+</body>
+</html>

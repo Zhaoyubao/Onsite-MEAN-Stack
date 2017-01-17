@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Dashboard</title>
+	<script src="js/jquery.min.js"></script>
+	<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+	<link rel="stylesheet" href="style/main.css">
+</head>
+<body>
+	<div class='container'>
+		<h1>Dog Shelter</h1>
+		<h3>Enter New Dog Information Below</h3>
+		<form class='new' action='/dogs' method='post'>
+			<label>Name:</label>
+			<input type='text' name='name'>
+			<label>Age:</label>
+			<input type='number' name='age'>
+			<label>Breed:</label>
+			<input type='text' name='breed'>
+			<label>Weight: (lbs.)</label>
+			<input type='number' min='0' step='0.1' name='weight'>
+			<input class='btn btn-default' type='submit' value='Add New Dog'>
+		</form>
+		<a href="/"><button class='btn btn-default' type="button">Go Back</button></a>
+	</div>
+</body>
+</html>

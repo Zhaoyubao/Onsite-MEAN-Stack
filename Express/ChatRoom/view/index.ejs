@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Chat | Login</title>
+    <script type="text/javascript" src='/js/jquery-3.1.0.min.js'></script>
+    <script type="text/javascript" src='/socket.io/socket.io.js'></script>
+    <script type="text/javascript" src='/js/index.js'></script>
+
+    <link rel="stylesheet" href="/css/index.css">
+    <!-- <link rel="stylesheet" href="..\static\css\index.css"> -->
+  </head>
+  <body>
+
+    <form id="login" action="/login" method="post">
+      <label>Your Name:</label>
+      <input type="text" name="name">
+      <div>
+        <input type="button" value="Cancel" id="cancel">
+        <input type="submit" value="Ok" id="ok">
+      </div>
+    </form>
+
+    <main>
+      <div id="main">
+        <div id="history">
+          
+        </div>
+        <div id="users">
+          <h1>Users</h1>
+          <hr>
+        </div>
+      </div>
+      <div id="chat">
+        <form id="text">
+          <label id="cur_user"></label>
+          <label id="textarea">
+            <textarea name="chat_text"></textarea>
+            <input type="submit" value="Post">
+          </label>
+        </form>
+      </div>
+    </main>
+
+  </body>
+</html>

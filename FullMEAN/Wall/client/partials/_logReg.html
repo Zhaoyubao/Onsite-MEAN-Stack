@@ -1,0 +1,12 @@
+<form class="four columns" id="login" name="logRegForm" ng-submit="logReg()" onkeydown="if(event.keyCode == 13) return false" novalidate>
+    <h4>Enter a username to continue</h4>
+
+    <input ng-class="{invalid: !logRegForm.name.$valid && logRegForm.name.$touched}" type="text" name="name" placeholder="no more than 20 characters" ng-pattern="/^\w+$/" ng-maxlength="19" ng-model="user.name" required>
+    <button class="button-primary">Enter</button>
+
+    <div class="error" ng-show="logRegForm.$submitted || logRegForm.name.$touched">
+        <p ng-show="logRegForm.name.$error.required"><span>&#10060;</span> Please input your username</p>
+        <p ng-show="logRegForm.name.$error.pattern"><span>&#10060;</span> Username should contain only alpha-numeric characters(include underscore)</p>
+        <p ng-show="logRegForm.name.$error.maxlength"><span>&#10060;</span> Username should be less than 20 characters</p>
+    </div>
+</form>

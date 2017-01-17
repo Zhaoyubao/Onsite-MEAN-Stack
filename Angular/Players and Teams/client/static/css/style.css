@@ -1,0 +1,113 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  width: 55%;
+  margin: 10px auto;
+  font-family: arial;
+  font-size: 16px;
+}
+
+#links{
+  margin: 25px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+  #links a {
+    color: white;
+    text-decoration: none;
+    background-color: gray;
+    box-shadow: 0 0 10px silver;
+    border-radius: 4px;
+    padding: 5px 15px;
+  }
+    #links a:hover {
+        box-shadow: 0 0 15px gray;
+    }
+#players,
+#teams,
+#associations{
+  padding: 10px 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+  font-size: 120%;
+}
+  form > label > input{
+      font-size: 0.8em;
+      outline: none;
+      padding: 2px;
+  }
+  input.invalid {
+    border: 1px solid orangered;
+  }
+  form > select{
+    width: 25%;
+    padding: 5px 5px;
+  }
+button {
+    font-size: 70%;
+    color: white;
+    background-color: gray;
+    outline: none;
+    border: none;
+    box-shadow: 0 0 10px silver;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 5px 15px;
+  }
+button:hover {
+       box-shadow: 0 0 15px gray;
+   }
+table{
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid rgb(47, 192, 112);
+  margin-top: 30px;
+}
+  th, td{
+    text-align: center;
+    border: 1px solid rgb(47, 192, 112);
+    padding: 3px 1px;
+    width: 50%;
+  }
+  #associations th, #associations td{
+    width: 33%;
+  }
+  th {
+    background-color: rgb(47, 192, 112);
+    color: white;
+  }
+  th:not(:last-of-type) {
+      cursor: pointer;
+  }
+.sortorder:after {
+    content: '\25b2';   /* up arrow */
+}
+.sortorder.reverse:after {
+    content: '\25bc';   /* down arrow */
+}
+  /*table button{
+      color: white;
+      background-color: gray;
+      outline: none;
+      border: none;
+      box-shadow: 0 0 10px silver;
+      cursor: pointer;
+      border-radius: 4px;
+      padding: 5px 15px;
+  }
+  table button:hover {
+      box-shadow: 0 0 15px gray;
+  }*/

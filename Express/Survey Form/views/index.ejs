@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<meta charset='utf-8'>
+	<title>Survey Form</title>
+	<script src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<link rel='stylesheet' type='text/css' href='styles/style.css'>
+</head>
+<body>
+	<div>
+		<form>
+			<p>Your Name: </p>
+			<input id="name" type='text' name='name' onkeydown="if(event.keyCode==13) return false">
+			<p>Dojo Location: </p>
+			<select name='location'>
+				<option value="Seattle">Seattle</option>
+			    <option value="Silicon Valley">Silicon Valley</option>
+			    <option value="Los Angeles">Los Angeles</option>
+			    <option value="Dallas">Dallas</option>
+			    <option value="Washington D.C.">Washington D.C.</option>
+			    <option value="Chicago">Chicago</option>
+			</select>
+			<p>Favorite Language: </p>
+			<select name='language'>
+				<option value="Javascript">Javascript</option>
+		    	<option value="Python">Python</option>
+		    	<option value="Objective-C">Objective-C</option>
+		    	<option value="Ruby">Ruby</option>
+		   		<option value="Swift">Swift</option>
+			</select>
+			<p>Comment (optional): </p>
+			<textarea name='comment'></textarea>
+			<p id="click">Submit</p>
+		</form>
+	</div>
+</body>
+</html>

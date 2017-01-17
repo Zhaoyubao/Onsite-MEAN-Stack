@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: arial;
+    color: #3c4c5b;
+}
+h1 {
+    margin: 15px 0 0 50px;
+    text-shadow: 0 0 10px silver;
+}
+h2 {
+    margin: 50px 0 0 50px;
+}
+label#search {
+    margin-left: 50px;
+}
+    #search input {
+        width: 200px;
+    }
+table#friend {
+    text-align: center;
+    margin: 20px 0 0 50px;
+}
+    thead th:first-of-type {
+        cursor: pointer;
+    }
+    #friend th {
+        height: 30px;
+        color: white;
+        background-color: #009ac7;
+    }
+        .sortorder:after {
+            color: white;
+            content: '\25b2';   /* up arrow */
+        }
+        .sortorder.reverse:after {
+            color: white;
+            content: '\25bc';   /* down arrow */
+        }
+    #friend tbody tr:nth-of-type(odd) {
+        background-color: #f5fafe;
+    }
+        td {
+            height: 30px;
+            text-transform: capitalize;
+        }
+        td a {
+            font-size: 1em;
+            cursor: pointer;
+        }
+        td a:not(:last-child) {
+            margin-right: 15px;
+        }
+        td a.del {
+            color: orangered;
+        }
+a {
+    font-size: 1.2em;
+    color: #009ac7;
+    height: 30px;
+}
+a#add {
+    display: block;
+    margin: 30px 0 0 50px;
+}
+
+table#show {
+    margin: 20px 0 0 50px;
+}
+    table#show tr {
+        height: 30px;
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+a#edit {
+    margin: 20px 15px 0 50px;
+    display: inline-block;
+}
+
+form {
+    width: 350px;
+    margin-left: 50px;
+}
+    label {
+        font-size: 1.2em;
+        display: block;
+        margin-top: 20px;
+        margin-bottom: 5px;
+    }
+    input {
+        width: 300px;
+        font-size: 1.2em;
+        outline: none;
+        border: 1px solid silver;
+        border-radius: 2px;
+        margin-bottom: 5px;
+        padding: 3px 6px;
+    }
+    input:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0px 100px #fff inset;
+    }
+    button {
+        color: white;
+        background-color: #009ac7;
+        font-size: 1.1em;
+        border: none;
+        border-radius: 2px;
+        box-shadow: 1px 1px 2px #ccc;
+        cursor: pointer;
+        padding: 4px 10px;
+        margin-top: 25px;
+        margin-bottom: 35px;
+    }
+    button:hover {
+        background-color: #007394;
+    }
+a#go_back, a#home {
+    margin-left: 50px;
+}
+a#show {
+    margin-right: 15px;
+    margin-left: 50px;
+}
+span.error {
+    color: orangered;
+    font-style: italic;
+    position: absolute;
+}
+span#fname {
+    top: 208px;
+    left: 55px;
+}
+span#lname {
+    top: 290px;
+    left: 55px;
+}

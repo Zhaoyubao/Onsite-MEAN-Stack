@@ -1,0 +1,48 @@
+<form class="four columns" id="register" name="regForm" ng-submit="register()" onkeydown="if(event.keyCode == 13) return false">
+    <h3>Create account</h3>
+<!-- ==============================================================================  -->
+    <label>First Name</label>
+    <input type="text" name="first" ng-class="{invalid: !regForm.first.$valid && regForm.first.$touched}" ng-pattern="regExp.name" ng-minlength="2" ng-model="regUser.name.first" required>
+    <div class="error" ng-show="regForm.first.$touched">
+        <p ng-show="regForm.first.$error.required"><span>&#10060;</span> Please input your first name</p>
+        <p ng-show="regForm.first.$error.pattern || regForm.first.$error.minlength"><span>&#10060;</span> First name is invalid</p>
+    </div>
+<!-- ==============================================================================  -->
+    <label>Last Name</label>
+    <input type="text" name="last" ng-class="{invalid: !regForm.last.$valid && regForm.last.$touched}" ng-pattern="regExp.name" ng-minlength="2" ng-model="regUser.name.last" required>
+    <div class="error" ng-show="regForm.last.$touched">
+        <p ng-show="regForm.last.$error.required"><span>&#10060;</span> Please input your last name</p>
+        <p ng-show="regForm.last.$error.pattern || regForm.last.$error.minlength"><span>&#10060;</span> Last name is invalid</p>
+    </div>
+<!-- ==============================================================================  -->
+    <label>Email</label>
+    <input type="text" name="email" placeholder="ex:name@example.com" ng-class="{invalid: !regForm.email.$valid && regForm.email.$touched}" ng-pattern="regExp.email"  ng-model="regUser.email" required>
+    <div class="error" ng-show="regForm.email.$touched">
+        <p ng-show="regForm.email.$error.required"><span>&#10060;</span> Please input your email address</p>
+        <p ng-show="regForm.email.$error.pattern"><span>&#10060;</span> Email address is invalid</p>
+        <p ng-show="regErr"><span>&#10060;</span> Email already exists</p>
+    </div>
+<!-- ==============================================================================  -->
+    <label>Birthday</label>
+    <input type="date" name="dob" ng-class="{invalid: !regForm.dob.$valid && regForm.dob.$touched}" ng-model="regUser.dob" ng-min="minDate" min="{{ minDate }}" ng-max="today" max="{{ today }}" required>
+    <div class="error" ng-show="regForm.dob.$touched">
+        <p ng-show="!regForm.dob.$valid"><span>&#10060;</span> Please input a valid  birthday</p>
+    </div>
+<!-- ==============================================================================  -->
+    <label>Password</label>
+    <input type="password" name="pw" placeholder="at least 6 characters" ng-class="{invalid: !regForm.pw.$valid && regForm.pw.$touched}" ng-pattern="regExp.pw" ng-model="regUser.pw" ng-minlength="6" required>
+    <div class="error" ng-show="regForm.pw.$touched">
+        <p ng-show="regForm.pw.$error.required"><span>&#10060;</span> Please create a new password</p>
+        <p ng-show="regForm.pw.$error.pattern  || regForm.pw.$error.minlength"><span>&#10060;</span> password is invalid</p>
+    </div>
+<!-- ==============================================================================  -->
+    <label>Password again</label>
+    <input type="password" name="confirm" ng-class="{invalid: (regForm.pw.$valid && confirm !== regUser.pw) && regForm.confirm.$touched}" ng-model="confirm" required>
+    <div class="error" ng-show="regForm.confirm.$touched">
+        <p ng-show="regForm.pw.$valid && confirm !== regUser.pw"><span>&#10060;</span> The passwords entered don't match</p>
+    </div>
+<!-- ==============================================================================  -->
+    <button class="button-primary">Create new account</button>
+    <hr>
+    <p>Already have an account? <a href="#/login">Sign in</a><span>&#9656;</span></p>
+</form>

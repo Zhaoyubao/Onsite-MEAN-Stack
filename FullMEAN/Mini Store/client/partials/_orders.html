@@ -1,0 +1,41 @@
+<form id="order" ng-submit="addOrder()">
+    <p>Add a new order</p>
+    <span>Customer:</span>
+    <select ng-model="order._customer" ng-options="customer._id as customer.name for customer in customers" required>
+        <option value="">-- choose customer --</option>
+    </select>
+    <span>Order:</span>
+    <input type="number" ng-model="order.quantity" min="1" step="1" max="{{ prod.quantity }}" placeholder="quantity" required><i ng-show="prod">max:{{ prod.quantity }}</i>
+    <select ng-model="prod" ng-options="product.name disable when !product.quantity for product in products" required>
+        <option value="">-- choose product --</option>
+    </select>
+    <button class="button-primary">Orders</button>
+</form>
+<table id="order">
+    <thead>
+        <tr>
+            <th ng-click="sortBy('_customer.name')">Customer
+                <span class="sortorder" ng-show="sortby === '_customer.name'" ng-class="{reverse: reverse}"></span>
+            </th>
+            <th ng-click="sortBy('_product.name')">Product
+                <span class="sortorder" ng-show="sortby === '_product.name'" ng-class="{reverse: reverse}"></span>
+            </th>
+            <th ng-click="sortBy('quantity')">Quantity
+                <span class="sortorder" ng-show="sortby === 'quantity'" ng-class="{reverse: reverse}"></span>
+            </th>
+            <th ng-click="sortBy(_id)">Date
+                <span class="sortorder" ng-show="sortby === '_id'" ng-class="{reverse: reverse}"></span>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="order in orders | orderBy:sortby:reverse track by order._id">
+            <td>{{ order._customer.name }}</td>
+            <td>{{ order._product.name }}</td>
+            <td>{{ order.quantity }}</td>
+            <td>{{ order.createdAt | date: "MMMM dd yyyy hh:mma" }}</td>
+            <td><button class="del" ng-click="delOrder(order._id, order.quantity, order._product._id, order._product.quantity)">Cancel</button></td>
+        </tr>
+    </tbody>
+</table>

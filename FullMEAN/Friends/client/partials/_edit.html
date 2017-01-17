@@ -1,0 +1,13 @@
+<h2>Edit friend</h2>
+<form name="myForm" id="update" ng-submit="updateFriend()">
+    <label>First Name</label>
+    <input type="text" name="fname" ng-model="friend.fname" required>
+    <span class="error" id="fname" ng-show="myForm.fname.$error.required">Required!</span>
+    <label>Last Name</label>
+    <input type="text" name="lname" ng-model="friend.lname" required>
+    <span class="error" id="lname" ng-show="myForm.lname.$error.required">Required!</span>
+    <label>Birthday</label>
+    <input type="date" name="dob" ng-model="friend.dob"  max="{{ today }}" required>
+    <button type="submit">Update</button>
+</form>
+<a id="home" href="#/">Back</a>

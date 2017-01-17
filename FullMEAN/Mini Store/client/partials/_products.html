@@ -1,0 +1,20 @@
+<form id="product" ng-submit="addProduct()">
+    <input id="filter" type="text" ng-model="search.name" placeholder="search...">
+    <p>Add a new product</p>
+    <label>Name:</label>
+    <input type="text" ng-model="product.name" required>
+    <label>Image(url):</label>
+    <input type="text" placeholder="http://" ng-model="product.imgURL">
+    <label>Description</label>
+    <textarea ng-model="product.description"></textarea>
+    <label>Initial Quantity:</label>
+    <input type="number" min="0" step="1" max="1000" ng-model="product.quantity" required>
+    <button class="button-primary">Create</button>
+</form>
+<div id="products">
+    <div class="product" ng-repeat="product in products | filter:search track by product._id">
+        <img src="{{ product.imgURL }}" alt="{{ product.name }}" title="{{ product.description }}">
+        <p>{{ product.name }}</p>
+        <p>({{ product.quantity }} left)<span ng-click="delProduct(product._id)">&#10060;</span></p>
+    </div>
+</div>

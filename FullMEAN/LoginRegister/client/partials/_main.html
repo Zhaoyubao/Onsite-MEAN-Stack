@@ -1,0 +1,26 @@
+<div class="row" id="nav">
+    <h2 class="two columns">Full MEAN</h2>
+    <button class="two columns" ng-click="signOut()">Sign Out</button>
+    <h4 class="three columns">Welcome! <a href="#/user">{{ user.name.first }}</a></h4>
+</div>
+<div class="row">
+    <input class="two columns" type="text" ng-model="search.name.$" placeholder="Filter... name">
+</div>
+<div class="row">
+    <table class="five columns">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Birthday</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="user in users | filter:search track by user._id">
+          <td>{{ user.name.first }} {{ user.name.last }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.dob | date: "MMMM d, y" }}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>

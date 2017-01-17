@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Mongoose</title>
+</head>
+<body>
+    <form action="/users" method="post" onkeydown="if(event.keyCode==13) return false">
+        <p>Your Name: </p>
+        <input type='text' name='name'>
+        <p>Your age: </p>
+        <input type='number' min='1' max='130' name='age'>
+        <button type="submit">Submit</button>
+    </form>
+    <ul>
+    <% for(let user of users) { %>
+        <li>Name: <%= user.name %> &nbsp;&nbsp;&nbsp;&nbsp;Age: <%= user.age %></li>
+    <% } %>
+    </ul>
+</body>
+</html>

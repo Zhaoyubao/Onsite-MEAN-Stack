@@ -1,0 +1,13 @@
+<h2>Add a new friend</h2>
+<form name="myForm" id="create" ng-submit="createFriend()" onkeydown="if(event.keyCode == 13) return false">
+    <label>First Name</label>
+    <input type="text" name="fname" ng-model="newFriend.fname" required>
+    <span class="error" id="fname" ng-show="myForm.fname.$error.required">Required!</span>
+    <label>Last Name</label>
+    <input type="text" name="lname" ng-model="newFriend.lname" required>
+    <span class="error" id="lname" ng-show="myForm.lname.$error.required">Required!</span>
+    <label>Birthday</label>
+    <input type="date" name="dob" ng-model="newFriend.dob" max="{{ today }}" required>
+    <button type="submit">Create</button>
+</form>
+<a id="go_back" href="#/">Go back</a>

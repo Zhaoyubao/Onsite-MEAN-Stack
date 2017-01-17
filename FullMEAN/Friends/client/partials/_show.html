@@ -1,0 +1,17 @@
+<h2>Show friend</h2>
+<table id="show">
+    <tr>
+        <td width="200">First Name:</td>
+        <td width="300" ng-bind="friend.fname"></td>
+    </tr>
+    <tr>
+        <td>Last Name:</td>
+        <td ng-bind="friend.lname"></td>
+    </tr>
+    <tr>
+        <td>Birthday:</td>
+        <td>{{ friend.dob | date: "MMMM d, y" }}</td>
+    </tr>
+</table>
+<a id="edit" href="#/edit/{{ friend._id }}">Edit</a>
+<a id="back" href="#/">Back</a>

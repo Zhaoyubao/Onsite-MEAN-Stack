@@ -1,0 +1,15 @@
+<div id="prods">
+    <div class="prod" ng-repeat="product in products | filter:search track by product._id">
+        <img src="{{ product.imgURL }}" alt="{{ product.name }}" title="{{ product.description }}">
+        <p>{{ product.name }}</p>
+        <p>({{ product.quantity }} left)</p>
+    </div>
+</div>
+<ul>
+    <p>Recent Orders</p>
+    <li ng-repeat="order in orders track by order._id"><b>{{order._customer.name}}</b> purchased <b>{{order.quantity}} {{order._product.name}}</b>...</li>
+</ul>
+<ul>
+    <p>New Customers</p>
+    <li ng-repeat="customer in customers track by customer._id"><b>{{customer.name}}</b> joined the store. &nbsp;&nbsp;&nbsp;&nbsp;({{ customer.createdAt | date: "MMMM dd yyyy" }})</li>
+</ul>

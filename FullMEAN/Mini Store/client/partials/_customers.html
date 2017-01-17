@@ -1,0 +1,38 @@
+<div id="customer">
+    <form name="customerForm" ng-submit="addCustomer()">
+        <p>Add a new customer</p>
+        <span>Customer Name:</span>
+        <input type="text" name="name" ng-model="customer.name" ng-maxlength="19" ng-pattern="/^[a-zA-Z\s]+$/" required>
+        <button class="button-primary">Add</button>
+
+        <div class="error" ng-show="customerForm.$submitted || customerForm.name.$touched">
+            <p ng-show="customerForm.name.$error.required"><span>&#10060;</span> Please input your username</p>
+            <p ng-show="customerForm.name.$error.pattern"><span>&#10060;</span> Username should contain only letters(include space)</p>
+            <p ng-show="customerForm.name.$error.maxlength"><span>&#10060;</span> Username should be less than 20 characters</p>
+        </div>
+        <div class="error" ng-show="addError">
+            <p><span>&#10060;</span> Username already exists</p>
+        </div>
+    </form>
+    <input id="search" type="text" placeholder="search name" ng-model="search.name">
+    <table>
+        <thead>
+            <tr>
+                <th ng-click="sortBy('name')">Customer Name
+                    <span class="sortorder" ng-show="sortby === 'name'" ng-class="{reverse: reverse}"></span>
+                </th>
+                <th ng-click="sortBy('_id')">Created Date
+                    <span class="sortorder" ng-show="sortby === '_id'" ng-class="{reverse: reverse}"></span>
+                </th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="customer in customers | orderBy:sortby:reverse | filter:search track by customer._id">
+                <td>{{ customer.name }}</td>
+                <td>{{ customer.createdAt | date: "MMMM dd yyyy hh:mma" }}</td>
+                <td><button class="del" ng-click="delCustomer(customer._id)">Remove</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

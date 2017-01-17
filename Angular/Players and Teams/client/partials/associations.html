@@ -1,0 +1,31 @@
+<div id="associations">
+    <form>
+        <select ng-model="playerName">
+            <option ng-repeat="player in players" ng-hide="player.team" ng-value="player.name" >{{player.name}}</option>
+        </select>
+        <select ng-model="teamName">
+            <option ng-repeat="team in teams" ng-value="team.name">{{team.name}}</option>
+        </select>
+        <button type="button" ng-click="assignPlayer()">Assign Player to Team</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th ng-click="sortby = 'name'; sortBy(sortby)">Player
+                    <span class="sortorder" ng-show="sortby === 'name'" ng-class="{reverse: reverse}"></span>
+                </th>
+                <th ng-click="sortby = 'team'; sortBy(sortby)">Team
+                    <span class="sortorder" ng-show="sortby === 'team'" ng-class="{reverse: reverse}"></span>
+                </th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="player in players | orderBy:sortby:reverse track by player.id">
+                <td ng-bind="player.name"></td>
+                <td ng-bind="player.team"></td>
+                <td><button ng-show="player.team" ng-click="clearAssignment(player.id)">Clear Assignment</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

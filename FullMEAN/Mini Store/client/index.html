@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mini-MEAN Store</title>
+    <meta name="description" content="MEAN Project">
+    <meta name="author" content="Yubao Zhao">
+
+    <script src="angular/angular.js"></script>
+    <script src="angular-route/angular-route.js"></script>
+    <script src="main.js"></script>
+    <script src="controllers/indexCtrl.js"></script>
+    <script src="controllers/customerCtrl.js"></script>
+    <script src="controllers/productCtrl.js"></script>
+    <script src="controllers/orderCtrl.js"></script>
+    <script src="factories/storeFactory.js"></script>
+
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="navbar">
+        <h2>MEAN Store</h2>
+        <a class="nav" href="#/dashboard">Dashboard</a>
+        <a class="nav" href="#/products">Products</a>
+        <a class="nav" href="#/orders">Orders</a>
+        <a class="nav" href="#/customers">Customers</a>
+    </div>
+    <ng-view></ng-view>
+    <script>
+        let bars = document.getElementsByClassName("nav");
+        for(let bar of bars) {
+            bar.addEventListener("click", () => {
+                reset();
+                bar.style.backgroundColor = "#33C3F0";
+                bar.style.color = "white";
+            });
+        }
+        function reset() {
+            for(let bar of bars) {
+                bar.style.backgroundColor = "";
+                bar.style.color = "#1EAEDB";
+            }
+        }
+    </script>
+</body>
+</html>

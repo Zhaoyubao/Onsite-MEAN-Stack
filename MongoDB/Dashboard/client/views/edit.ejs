@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Dashboard</title>
+	<script src="js/jquery.min.js"></script>
+	<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+	<link rel="stylesheet" href="style/main.css">
+</head>
+<body>
+	<div class='container'>
+		<h1>Dog Shelter</h1>
+		<hr>
+		<form class='edit' action='/dogs/<%= dog.id %>' method='post'>
+			<label>Name: </label>
+			<input type='text' name='name' value='<%= dog.name %>'>
+			<label>Age: </label>
+			<input type='number' name='age' value='<%= dog.age %>'>
+			<label>Breed: </label>
+			<input type='text' name='breed' value='<%= dog.breed %>'>
+			<label>Weight: </label>
+			<input type='number' name='weight' value='<%= dog.weight %>'>
+			<input class='btn btn-default' type='submit' value='Update'>
+		</form>
+		<hr>
+		<a href="/dogs/<%= dog.id %>"><button class='btn btn-default' type="button">Show</button></a>
+		<a href="/dogs/<%= dog.id %>/delete"><button class='btn btn-default' type="button" onclick="if(!confirm('Confirm Delete!')) return false">Delete</button></a>
+		<a href="/"><button class='btn btn-default' type="button">Go Back</button></a>
+	</div>
+</body>
+</html>
